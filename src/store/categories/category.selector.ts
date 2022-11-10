@@ -5,7 +5,10 @@ import { CategoryMap } from "./category.types";
 
 const selectCategoryReducer = (state): CategoriesState => state.categories;
 
-export const selectCategories = createSelector([selectCategoryReducer], (categoriesSlice) => categoriesSlice.categories);
+export const selectCategories = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.categories
+);
 
 export const selectCategoriesMap = createSelector(
   [selectCategories],
@@ -17,4 +20,7 @@ export const selectCategoriesMap = createSelector(
     }, {} as CategoryMap)
 );
 
-export const selectIsLoading = createSelector([selectCategoryReducer], (categoriesSlice) => categoriesSlice.isLoading);
+export const selectCategoriesIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+);
